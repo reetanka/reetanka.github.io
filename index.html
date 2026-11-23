@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dr. Reetanka Jana</title>
+  <meta name="description" content="Exploring Knowledge. Understanding Medicine. Building Ideas.">
+  <meta property="og:title" content="Dr. Reetanka Jana">
+  <meta property="og:description" content="Exploring Knowledge. Understanding Medicine. Building Ideas.">
+  <meta name="theme-color" content="#0b1020">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --glass: rgba(255,255,255,.07);
+      --glass-hover: rgba(255,255,255,.13);
+      --border: rgba(255,255,255,.14);
+      --text: #f5f7ff;
+      --muted: #aab2d0;
+      --a1: #5eead4;   /* teal */
+      --a2: #a78bfa;   /* violet */
+      --a3: #f472b6;   /* pink */
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: var(--bg); }
+    body {
+      min-height: 100vh;
+      font-family: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--text);
+      display: flex; justify-content: center;
+      padding: 56px 18px 40px;
+      position: relative; overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* animated gradient orbs */
+    .orb { position: fixed; border-radius: 50%; filter: blur(80px); opacity: .45; z-index: 0; pointer-events: none; }
+    .o1 { width: 340px; height: 340px; background: var(--a2); top: -90px; left: -90px; animation: drift 14s ease-in-out infinite alternate; }
+    .o2 { width: 300px; height: 300px; background: var(--a1); bottom: -80px; right: -80px; animation: drift 17s ease-in-out infinite alternate-reverse; }
+    .o3 { width: 220px; height: 220px; background: var(--a3); top: 45%; left: 55%; opacity: .25; animation: drift 20s ease-in-out infinite alternate; }
+    @keyframes drift { to { transform: translate(40px, 60px) scale(1.15); } }
+
+    main { position: relative; z-index: 1; width: 100%; max-width: 440px; text-align: center; animation: rise .7s ease both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(16px); } }
+
+    .avatar-wrap {
+      width: 112px; height: 112px; margin: 0 auto 18px;
+      padding: 3px; border-radius: 50%;
+      background: conic-gradient(var(--a1), var(--a2), var(--a3), var(--a1));
+      animation: spin 8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .avatar {
+      width: 100%; height: 100%; border-radius: 50%;
+      background: var(--bg); display: grid; place-items: center;
+      overflow: hidden; border: 3px solid var(--bg);
+      animation: spin 8s linear infinite reverse; /* keeps photo upright */
+      font-size: 42px; font-weight: 600;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    h1 { font-size: 30px; font-weight: 700; letter-spacing: -.01em; }
+    .tagline {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: .02em;
+  background: linear-gradient(90deg, var(--a1), var(--a2), var(--a3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; }
+    .bio { margin-top: 8px; color: var(--muted); font-size: 16px; line-height: 1.5; }
+
+    .pulse { width: 150px; height: 28px; margin: 14px auto 0; display: block; }
+    .pulse path {
+      fill: none; stroke: var(--a1); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+      stroke-dasharray: 260; stroke-dashoffset: 260; animation: beat 3s ease-in-out infinite;
+    }
+    @keyframes beat { 0% { stroke-dashoffset: 260; } 60%, 100% { stroke-dashoffset: 0; } }
+
+    .socials { display: flex; justify-content: center; gap: 12px; margin: 24px 0 28px; flex-wrap: wrap; }
+    .socials a {
+      width: 46px; height: 46px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: var(--glass); border: 1px solid var(--border);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      color: var(--text); transition: transform .2s, background .2s, color .2s;
+    }
+    .socials a:hover, .socials a:focus-visible { transform: translateY(-4px) scale(1.08); background: var(--glass-hover); color: var(--a1); outline: none; }
+    svg { width: 21px; height: 21px; fill: currentColor; }
+
+    ul { list-style: none; display: grid; gap: 14px; }
+    .link {
+      position: relative; display: flex; align-items: center; gap: 14px;
+      padding: 17px 22px; border-radius: 18px;
+      background: var(--glass); border: 1px solid var(--border);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      color: var(--text); text-decoration: none; font-weight: 500; font-size: 17px;
+      transition: transform .2s, background .2s, border-color .2s, box-shadow .2s;
+    }
+    .link:hover, .link:focus-visible {
+      transform: translateY(-3px); background: var(--glass-hover);
+      border-color: var(--a1); box-shadow: 0 10px 30px -10px var(--a2); outline: none;
+    }
+    .link .label { flex: 1; text-align: left; }
+    .link .arrow { color: var(--a1); transition: transform .2s; }
+    .link:hover .arrow { transform: translateX(5px); }
+
+    footer { margin-top: 38px; color: var(--muted); font-size: 13px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .pulse path { stroke-dashoffset: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+
+  <main>
+    <div class="avatar-wrap">
+      <div class="avatar">
+        <!-- Save your photo in the same folder as avatar.jpg. If it's missing, the letter R shows instead. -->
+        <img src="avatar.jpg" alt="Reetanka Jana" onerror="this.remove(); this.parentNode.textContent='R'">
+      </div>
+    </div>
+
+    <h1>Dr. Reetanka Jana</h1>
+    <p class="tagline">Doctor | Technology Enthusiast | Lifelong Learner</p>
+    <p class="bio">Exploring the intersection of medicine, technology, and human knowledge.</p>
+
+    <svg class="pulse" viewBox="0 0 150 28" aria-hidden="true">
+      <path d="M0 14 H45 L52 14 L58 4 L66 24 L73 8 L78 14 H150"/>
+    </svg>
+
+    <!-- EDIT THE href VALUES: replace each "yourhandle" with your real handle. -->
+    <div class="socials">
+      <a href="https://x.com/TheUnseenSignal" target="_blank" rel="noopener" aria-label="X">
+        <svg viewBox="0 0 24 24"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg>
+      </a>
+      <a href="https://instagram.com/the_unseen_signal" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.2 12 2.2zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95C23.73 2.7 21.31.27 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+      </a>
+      <a href="https://facebook.com/TheUnseenSignal" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/reetanka" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+      </a>
+    </div>
+
+    <ul>
+      <li>
+        <a class="link" href="https://reetanka.medium.com" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+          <span class="label">Medium</span><span class="arrow">→</span>
+        </a>
+      </li>
+      <li>
+        <a class="link" href="https://github.com/reetanka" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>
+          <span class="label">My GitHub</span><span class="arrow">→</span>
+        </a>
+      </li>
+      <!-- To add another button, copy a whole <li>…</li> block and change the link and label. -->
+    </ul>
+
+    <footer>© <span id="y"></span> Reetanka</footer>
+  </main>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
